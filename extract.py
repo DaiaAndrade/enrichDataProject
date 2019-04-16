@@ -9,18 +9,26 @@
 """
 def getCoordinates (dataFile):
     coordinates = []
+    #teste para abrir o arquivo
     try: 
         coordinatesFile = open(dataFile,'r')
     except FileNotFoundError:
         return 0
-
+    
+    # laço para iterar as linhas do arquivo 
     for line in coordinatesFile:
+        # teste para achar latitude
         if line.find("Latitude") != -1:
+            # split dos elementos da linha
             tmp = line.split('   ',1)
+            # eliminando o \n
             tmp = tmp[1].split('\n',1)
             coordinates.append(tmp[0])
+        # teste para achar longitude
         elif line.find("Longitude") != -1:
+            # split dos elementos da linha
             tmp = line.split('   ',1)
+            # eliminando o \n
             tmp = tmp[1].split('\n',1)
             coordinates.append(tmp[0])
     coordinatesFile.close()
