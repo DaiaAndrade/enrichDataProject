@@ -46,9 +46,9 @@ Por conta de falta de dados ou campos muito extenso, existem duas formas de visu
  - Completa: todos os dados.
  - Essencial: visualização que constam os dados de Latitude, Longitude , Rua, Cidade, Estado, Pais, CEP.
  
-Os dados de Interseccao, Unidade_Velocidade, Limite_Velocidade estão apenas disponíveis para coordenadas no EUA.
+Os dados de `Interseccao, Unidade_Velocidade e Limite_Velocidade` estão apenas disponíveis para coordenadas no EUA.
 
-URL_Mapa retorna uma url que mostra uma miniatura de mapa com a coordenada.
+`URL_Mapa` retorna uma url que mostra uma miniatura de mapa com a coordenada.
 
 ### Failsafes:
 - Caso algum parâmetro esteja faltando ou ele esteja errado, o programa termina.
