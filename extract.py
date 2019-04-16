@@ -4,7 +4,8 @@
 """ 
     Função getCoordinates
         Entrada: string dataFile
-        Sa
+        Saída:  zero em caso de arquivo inexistente
+                list coordinates com todas as coordenadas onde os índices pares são latitude e ímpares longitude
 """
 def getCoordinates (dataFile):
     coordinates = []
