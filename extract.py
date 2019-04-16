@@ -1,9 +1,18 @@
 #!/usr/bin/env python3.6
 # -*- coding: utf-8 -*-
 
+""" 
+    Função getCoordinates
+        Entrada: string dataFile
+        Sa
+"""
 def getCoordinates (dataFile):
     coordinates = []
-    coordinatesFile = open(dataFile,'r')
+    try: 
+        coordinatesFile = open(dataFile,'r')
+    except FileNotFoundError:
+        return 0
+
     for line in coordinatesFile:
         if line.find("Latitude") != -1:
             tmp = line.split('   ',1)

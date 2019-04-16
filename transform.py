@@ -12,6 +12,8 @@ def enrichData (coord,apiKey):
     resp = requests.get(url,params=queue)
     enrichedData = json.loads(resp.text)
 
+    if enrichedData["info"]["statuscode"] != 0:
+        return 0        
     return enrichedData
 
 def cleanData (enrichedData):

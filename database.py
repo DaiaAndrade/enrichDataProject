@@ -11,13 +11,16 @@ class Database:
         self.password = password
     
     def databaseConnect(self):
-        self.connection = MySQLdb.connect(self.server,self.user,self.password)
+        try:
+            self.connection = MySQLdb.connect(self.server,self.user,self.password)
+        except:
+            return 0
 
     def getCursor(self):
         self.cursor = self.connection.cursor()
 
     def createdatabase(self,databaseName):
-        tmp = "CREATE DATABASE "+databaseName
+        tmp = "CREATE DATABASE IF NOT EXISTS "+databaseName
         self.getCursor()
         self.cursor.execute(tmp)
 
@@ -26,7 +29,7 @@ class Database:
         self.connection.select_db(databaseName)
 
     def createTable(self,tableName):
-        tmp1 = "create table "
+        tmp1 = "CREATE TABLE IF NOT EXISTS "
         tmp2 = "(ID INT NOT NULL auto_increment,Latitude varchar(20),Longitude varchar(20),Rua varchar(250),Cidade varchar(100),Estado varchar(100),Pais varchar(100),CEP varchar(20),Tipo_endereco varchar(20),URL_Mapa varchar(1000),Interseccao varchar(500),Unidade_Velocidade varchar(10),Limite_Velocidade int,PRIMARY KEY (ID))"
         tmp3 = tmp1+tableName+tmp2
         self.getCursor()
@@ -61,12 +64,8 @@ class Database:
         for i in resultTable:
             print(i)
 
-    def endDatabase(self,tableName,databaseName):
-        tmp = "DROP " + tableName + " IF EXISTS"
-        self.getCursor()
-        self.cursor.execute(tmp)
-        self.connection.commit()
-        tmp = "DROP " + databaseName + " IF EXISTS"
+    def endDatabase(self,tableName):
+        tmp = "DROP TABLE IF EXISTS " + tableName
         self.getCursor()
         self.cursor.execute(tmp)
         self.connection.commit()
