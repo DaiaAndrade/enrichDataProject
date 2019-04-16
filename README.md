@@ -8,10 +8,10 @@ Foram utilizados também as bibliotecas [Requests](http://docs.python-requests.o
 requisições URL, arquivos .json e banco de dados.
 
 ### Arquivos do Projeto:
-    database.py: arquivo com a classe Database, classe reponsável por executar as atividades do banco
-    extract.py: arquivo com a função para extrair as coordenadas do arquivo
-    transform.py: arquivo com as funções responsável por enriquecer as informações sobre as coordenadas e tratar os dados para serem postos no banco
-    run.py: arquivo runnable
+- `database.py:` arquivo com a classe Database, classe reponsável por executar as atividades do banco
+- `extract.py:` arquivo com a função para extrair as coordenadas do arquivo
+- `transform.py:` arquivo com as funções responsável por enriquecer as informações sobre as coordenadas e tratar os dados para serem postos no banco
+- `run.py:` arquivo runnable
 
 ### Execução
 1. Pre-Requisitos:
@@ -26,17 +26,18 @@ requisições URL, arquivos .json e banco de dados.
         python3.6 run.py SERVIDOR USUARIO SENHA ARQUIVO KEY
 
 ### Entradas esperadas:
-    SERVIDOR: Servidor a ser conectado
-    USUARIO: Usuário do servidor
-    SENHA: Senha do usuário
-    ARQUIVO de coordenadas: Caminho do arquivo onde as coordenadas estão armazenadas
-    KEY: Chave de acesso da API
+- `SERVIDOR:` Servidor a ser conectado
+- `USUARIO:` Usuário do servidor
+- `SENHA:` Senha do usuário
+- `ARQUIVO de coordenadas:` Caminho do arquivo onde as coordenadas estão armazenadas
+- `KEY:` Chave de acesso da API
+
 ** O nome do banco e da tabela foram previamente escolhidos
 
 ### Saída esperada:
 Impressão dos dados do banco com as seguintes colunas:
-    
-        Latitude, Longitude , Rua, Cidade, Estado, Pais, CEP, Tipo_endereco, URL_Mapa, Interseccao, Unidade_Velocidade, Limite_Velocidade
+
+`Latitude`, `Longitude` , `Rua`, `Cidade`, `Estado`, `Pais`, `CEP`, `Tipo_endereco` , `URL_Mapa`, `Interseccao`, `Unidade_Velocidade`, `Limite_Velocidade`
 
 ### Comportamento:
 O programa executará uma vez, perguntará se o usuário deseja ver o banco completo ou resumido, exibirá o desejado e terminará a operação
