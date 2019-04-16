@@ -2,9 +2,9 @@
 
 **Projeto criado por: Daiane Focking Andrade**
 
-Esse é um projeto de ETL implementado em Python 3.6 utilizando a API de Geocoding gratuita MapQuest.
+Esse é um projeto de ETL implementado em Python 3.6 utilizando a [API de Geocoding gratuita MapQuest](https://developer.mapquest.com/).
 
-Foram utilizados também as bibliotecas Requests, JSON e MySQLdb para lidar, respectivamente com 
+Foram utilizados também as bibliotecas [Requests](http://docs.python-requests.org/en/master/), [JSON](https://docs.python.org/3/library/json.html) e [MySQLdb](https://mysqlclient.readthedocs.io/) para lidar, respectivamente com 
 requisições URL, arquivos .json e banco de dados.
 
 ### Arquivos do Projeto:
@@ -49,3 +49,15 @@ Por conta de falta de dados ou campos muito extenso, existem duas formas de visu
 Os dados de Interseccao, Unidade_Velocidade, Limite_Velocidade estão apenas disponíveis para coordenadas no EUA.
 
 URL_Mapa retorna uma url que mostra uma miniatura de mapa com a coordenada.
+
+### Failsafes:
+- Caso algum parâmetro esteja faltando ou ele esteja errado, o programa termina.
+- Caso alguma dado de login no server esteja errado, o programa termina.
+- Caso já exista um banco com o nome previamente escolhido, ele será utilizado
+- Caso o arquivo com as coordenadas não exista, o programa termina apagando a tabela.
+- Caso ocorra algum erro com a API, o programa termina apagando a tabela.
+As interações com o usuário ficam no aguardo das respostas certas por tempo indeterminado
+
+### Utilidade dos dados:
+Dados geográficos enriquecidos podem ajudar, naturalmente, na localização de pessoas.
+Não só isso, mas são úteis para marketing direcionado tanto para interesses próximos ao da localização quanto para `awareness` do cliente (em potencial ou não). Pode-se utilizar um raio `n` ao redor do ponto para que quando um potencial cliente estiver nesse raio receba uma mensagem, anúncio ou notificação sobre o estabelecimento/serviço. Isso se aplica para concorrentes também: quando o cliente está próximo ao estabelecimento do concorrente, ele recebe algum tipo de sinalização.
