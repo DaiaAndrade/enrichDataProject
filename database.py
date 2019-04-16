@@ -3,13 +3,23 @@
 
 import MySQLdb
 
+""" 
+    Classe Database
+        Classe para organizar e dar manutenção a manipulação do banco
+    Métodos:
+        Conexão com o banco, aquisição do cursor, criação do banco, seleção do banco de dados a ser trabalhado
+        criação da tabela, inserção de elementos, método para agilizar a iniciação do banco, mostrar
+        tabela inteira, mostrar tabela parcial, finalizar a tabela
+        
+"""
+
 class Database:
 
     def __init__(self, server,user,password):
         self.server = server
         self.user = user
         self.password = password
-    
+
     def databaseConnect(self):
         try:
             self.connection = MySQLdb.connect(self.server,self.user,self.password)
@@ -58,7 +68,7 @@ class Database:
     
     def showEssentialTable(self,tableName):
         self.getCursor()
-        tmp = "SELECT Latitude,Longitude,Rua,Cidade,Estado,Pais FROM "+tableName
+        tmp = "SELECT Latitude,Longitude,Rua,Cidade,Estado,Pais,CEP FROM "+tableName
         self.cursor.execute(tmp)
         resultTable = self.cursor.fetchall()
         for i in resultTable:
